@@ -5,7 +5,7 @@ const USERS_LIST_TOPIC = USERS_LIST_TOPIC_PREFIX + '/#';
 const CHAT_ROOM_TOPIC = 'chat';
 
 // Default MQTT broker to connect to.
-const DEFAULT_BROKER_HOST = window.location.hostname;
+const DEFAULT_BROKER_HOST = (window.location.protocol == 'https') ? 'wss://' : 'ws://' + window.location.host + '/mqtt';
 const DEFAULT_BROKER_PORT = '8080';
 
 const USER_STYLE = {
@@ -65,12 +65,11 @@ function onConnectBtn() {
   disableLogin();
 
   var host = $('#brokerHost').val();
-  var port = $('#brokerPort').val();
   var username = $('#username').val();
   var password = $('#password').val();
   $('#password').val('');
   clientId = username + '_' + new Date().getTime().toString(36);
-  client = new Paho.MQTT.Client(host, Number(port), clientId);
+  client = new Paho.MQTT.Client(host, clientId);
 
   // set callback handlers
   client.onConnectionLost = onConnectionLost;
