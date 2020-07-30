@@ -86,7 +86,7 @@ function onConnectBtn() {
 
 function onDisconnectBtn() {
   showMessage(MSG_LEVEL_STYLE.INFO, 'Exited');
-  if (client.isConnected()) {
+  if (client && client.isConnected()) {
     client.send(makeDisconnectMessage(clientId));
     client.disconnect();
   }
