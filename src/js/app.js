@@ -5,7 +5,7 @@ const USERS_LIST_TOPIC = USERS_LIST_TOPIC_PREFIX + '/#';
 const CHAT_ROOM_TOPIC = 'chat';
 
 // Default MQTT broker to connect to.
-const DEFAULT_BROKER_HOST = (window.location.protocol == 'https') ? 'wss://' : 'ws://' + window.location.host + '/mqtt';
+const DEFAULT_BROKER_HOST = (window.location.protocol == 'https:') ? 'wss://' : 'ws://' + window.location.host + '/mqtt';
 const DEFAULT_BROKER_PORT = '8080';
 
 const USER_STYLE = {
