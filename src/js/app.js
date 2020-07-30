@@ -150,7 +150,10 @@ function connected(mqttClient, myClientId) {
   mqttClient.subscribe(CHAT_ROOM_TOPIC);
   mqttClient.subscribe(USERS_LIST_TOPIC);
 
-  sendPresence(mqttClient, myClientId);
+  // hack to wait for subscription to go through before sending presence
+  setTimeout(function() {
+    sendPresence(mqttClient, myClientId);
+  }, 100);
   enableDisconnection(mqttClient, myClientId);
   enableUserMessage(mqttClient, myClientId);
   disableLogin();
