@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <title>VerneMQ Chat Demo</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/chat.css" />
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+
+  <script src="js/app.js"></script>
+</head>
+
+<body>
+  <!-- Main container -->
+  <div id="main" class="container p-2 mh-100">
+    <!-- Login container-->
+    <div class="row m-2" id="login">
+      <form id="loginForm" class="col-12 p-0">
+
+        <div class="row m-0">
+          <div class="col-6 row m-0 p-0">
+            <input type="text" class="col-8 form-control " id="brokerHost" placeholder="Hostname" required/>
+            <input type="number" class="col-3 form-control ml-1" id="brokerPort" placeholder="TCP port" required/>
+          </div>
+
+          <div class="col-6 p-0 d-flex flex-row justify-content-end input-group">
+            <input type="text" class="form-control" id="username" placeholder="Username" required/>
+            <input type="password" class="form-control" id="password" placeholder="Password"/>
+            <div class="input-group-append">
+              <button id="connectBtn" type="button" class="btn btn-primary">Connect</button>
+              <button id="disconnectBtn" type="button" class="btn btn-danger" disabled>Disconnect</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Chat window -->
+    <div class="row m-2" id="chat">
+      <!-- Users container -->
+      <div class="card col-2 p-0">
+        <div class="card-header p-1">Connected Users</div>
+        <div id='usersListCard' class="card-body p-1">
+          <ul id="usersList" class="list-group mh-100"></ul>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Messages container -->
+      <div class="card col-10 p-0">
+        <div class="card-header p-1 d-flex justify-content-between">
+          <p class="m-0">Messages</p>
+          <button id="clearMessages" class="p-0 btn btn-secondary btn-sm far fa-trash-alt"/>
+        </div>
+        <div id="messages" class="card-body p-1">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Send message container -->
+    <div class="row m-2">
+      <div class="col-12 input-group p-0">
+        <input type="text" class="form-control" disabled id="sendMessage" placeholder="Write message...">
+        <div class="input-group-append">
+          <button id="replyBtn" class="btn btn-outline-primary" disabled type="submit" disabled>Reply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

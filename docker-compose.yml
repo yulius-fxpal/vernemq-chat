@@ -1,0 +1,23 @@
+version: "3.4"
+
+services:
+  vernemq:
+    container_name: "vernemq"
+    image: "vernemq/vernemq"
+    restart: "unless-stopped"
+    environment:
+      - DOCKER_VERNEMQ_ACCEPT_EULA=yes
+      - DOCKER_VERNEMQ_USER_demo1=demo1
+      - DOCKER_VERNEMQ_USER_demo2=demo2
+      - DOCKER_VERNEMQ_USER_demo3=demo3
+      - DOCKER_VERNEMQ_USER_demo4=demo4
+      - DOCKER_VERNEMQ_USER_demo5=demo5
+      - DOCKER_VERNEMQ_USER_demo6=demo6
+      - DOCKER_VERNEMQ_USER_demo7=demo7
+      - DOCKER_VERNEMQ_USER_demo8=demo8
+      - DOCKER_VERNEMQ_USER_demo9=demo9
+      - DOCKER_VERNEMQ_USER_demo10=demo10
+    ports:
+      - "1883:1883"
+      - "8080:8080"
+      - "8888:8888"

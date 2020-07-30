@@ -1,0 +1,16 @@
+.loggedUser {
+  color:orange;
+}
+
+.otherUser {
+  color: darkgreen
+}
+
+#main {
+  height: 30em;
+}
+
+#usersList, #messages {
+  overflow-y: auto;
+  height: 25em;
+}
